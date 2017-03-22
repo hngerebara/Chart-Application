@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chart Plotting Application</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+
+  <body>
+    <div>
+     <header>
+        <div class="wrapper">
+          <img class="logo"src="logo.png" alt= "Chart" >
+        <div>
+      </header>
+
+
+    <div>
+      <div>
+       
+              <form id='input-form'>
+                
+                <div>
+                  <label>Enter your data here(Please seperate with commas*)</label>
+                  <div>
+                    <input type="text" id="datasets" placeholder="Enter your data">
+                  </div>
+                </div>
+
+                
+                  <div id="chart-type">
+                    <label><input type="radio" name="selectedGraph" id="histogram" value="histogram">Histogram</label>
+
+                    <label><input type="radio" name="selectedGraph" id="line" value="line">Line </label>
+                  
+                    <label><input type="radio" name="selectedGraph" id="bar" value="bar">Bar</label>
+                  
+                    <label><input type="radio" name="selectedGraph" id="pie" value="pie">Pie</label>
+                  </div>
+               
+                
+                 <div>
+                    <button id="plotInputedtData" onclick="clearCanvas()">Plot Your Chart</button>
+                    <button id="clear">Clear Canvas</button>
+                  </div>
+              </form>
+
+
+               <!-- </form>
+      <label> Number of Datasets</label>
+      <select id="datasets" class="datasets" onchange="changeSelect()">
+        <option value="select">Select</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+
+
+              
+        <table id="tableDatasets">
+        <thead>
+          <tr  class="Row">
+            <th> Item No:</th>
+            <th>Item Name</th>
+            <th >Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="tr1">
+          <td>1</td>
+          <td><input type="text" id="itemName1"></td>
+          <td><input type="text" id="value1"</td>
+        </tr>
+        <tr id ="tr2">
+          <td>2</td>
+          <td><input type="text" id="itemName2"></td>
+          <td><input type="text" id="value2"></td>
+        </tr>
+        <tr id="tr3">
+          <td>3</td>
+          <td><input type="text" id="itemName3"></td>
+          <td><input type="text" id="value3"></td>
+        </tr>
+        <tr id="tr4">
+          <td>4</td>
+          <td><input type="text" id="itemName4"></td>
+          <td><input type="text" id="value4" ></td>
+        </tr>
+        <tr id="tr5">
+          <td>5</td>
+          <td><input type="text" id="itemName5"></td>
+          <td><input type="text" id="value5"></td>
+        </tr>
+      </tbody>
+      </table>
+ -->
+     <!--  <input type="button" id="reset" value="Reset data">
+      <input type="button" id="plotChart"  value="Plot Chart"> 
+
+    //    <script
+    //      src="https://code.jquery.com/jquery-2.2.4.min.js"
+    //      integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    //      crossorigin="anonymous"></script>
+    
+
+    // <script type="text/javascript">
+    //   $("#plotInputedtData").on('click',function(){
+    //      var total = $("#datasets").val();
+    //      var inputed_values = [];
+
+    //      for (var i =1; i <= total; i++) {
+    //        var val = $("#value"+i).val();
+    //        inputed_values.push(val);
+    //      };
+
+    //      alert(inputed_values);
+    //   });
+    // </script>
+     
+//     <script type="text/javascript">
+//       window.onload =function(){
+//         document.getElementById("tr1").style.display ='none';
+//         document.getElementById("tr2").style.display ='none';
+//         document.getElementById("tr3").style.display ='none';
+//         document.getElementById("tr4").style.display ='none';
+//         document.getElementById("tr5").style.display ='none';
+//       }
+
+// //function to show and hide rows depending on the dataset value selected
+//     function changeSelect(){
+//       var data = document.getElementById("datasets").value;
+      
+//       if (data === "1"){
+//         document.getElementById("tr1").style.display ='';
+//         document.getElementById("tr2").style.display ='none';
+//         document.getElementById("tr3").style.display ='none';
+//         document.getElementById("tr4").style.display ='none';
+//         document.getElementById("tr5").style.display ='none';
+//       }
+//       else if (data === "2"){
+//         document.getElementById("tr1").style.display ='';
+//         document.getElementById("tr2").style.display ='';
+//         document.getElementById("tr3").style.display ='none';
+//         document.getElementById("tr4").style.display ='none';
+//         document.getElementById("tr5").style.display ='none';
+//       }
+//       else if (data === "3"){
+//         document.getElementById("tr1").style.display ='';
+//         document.getElementById("tr2").style.display ='';
+//         document.getElementById("tr3").style.display ='';
+//         document.getElementById("tr4").style.display ='none';
+//         document.getElementById("tr5").style.display ='none';
+//       }
+//       else if (data === "4"){
+//         document.getElementById("tr1").style.display ='';
+//         document.getElementById("tr2").style.display ='';
+//         document.getElementById("tr3").style.display ='';
+//         document.getElementById("tr4").style.display ='';
+//         document.getElementById("tr5").style.display ='none';
+//       }
+//       else if (data === "5"){
+//         document.getElementById("tr1").style.display ='';
+//         document.getElementById("tr2").style.display ='';
+//         document.getElementById("tr3").style.display ='';
+//         document.getElementById("tr4").style.display ='';
+//         document.getElementById("tr5").style.display ='';
+//       }
+//       else {
+//          document.getElementById("tr1").style.display ='none';
+//         document.getElementById("tr2").style.display ='none';
+//         document.getElementById("tr3").style.display ='none';
+//         document.getElementById("tr4").style.display ='none';
+//         document.getElementById("tr5").style.display ='none';
+//       }
+//     }</script>-->
+
+
+          
+          <div>
+              <canvas id="canvasId" height="300" width="600">
+              </canvas>
+          </div>
+        
+         
+            
+        </div>
+      </div>
+    </div>
+<script src="plot.js"></script>
+    
+
+  </body>
+</html>
