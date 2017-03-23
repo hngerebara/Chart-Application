@@ -87,7 +87,9 @@ function barChart(context, canvas, data, chartHeight) {
 //startAngle: the angle where the circle starts
 //endAngle: the angle where the circle ends
 
-function pieChart(context,canvas,data){
+function pieChart(context,canvas){
+  var datasets = document.getElementById('datasets').value.replace(/\s/g, "") ;
+  datasets=datasets.split(",");
     
     var total = 0;
     var startAngle
@@ -96,19 +98,20 @@ function pieChart(context,canvas,data){
     var centerY = this.canvasId.height / 2;
     var radius = Math.min(centerX,centerY);
 
-    for (var i = 0; i < data.length; i++) {
-      var values = data[i];
-    
-      total = data.reduce((a,b) => a + b , 0);
+    for (var i = 0; i < datasets.length; i++) {
+      var values = datasets[i];
+   
+      total = datasets.reduce((a,b) => parseInt(a) + parseInt(b), 0);
       var pieSlice= values/total;
       console.log(pieSlice);
 
-      var endAngle = initialAngle +  (pieSlice  * Math.Pi*2);
+      var endAngle = initialAngle +  (pieSlice  * Math.PI*2);
       console.log("this isthe total",total);
 
       context.beginPath();
       context.moveTo(centerX,centerY);
-      context.arc(centerX,centerY,radius,initialAngle,endAngle);
+
+      context.arc(centerX,centerY,radius,initialAngle,endAngle,false);
       context.stroke();
       context.closePath();
       context.fill();
@@ -165,6 +168,7 @@ function graph(event) {
   //remove spaces from user input and split into an array
   this.data = document.getElementById('datasets').value.replace(/\s/g, "") ;
   dataArray=this.data.split(",");
+
   
   //Select Chart Type
   var graphName = document.getElementsByName("selectedGraph");
