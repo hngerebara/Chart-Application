@@ -90,43 +90,43 @@ function barChart(context, canvas, data, chartHeight) {
 function pieChart(context,canvas){
   var datasets = document.getElementById('datasets').value.replace(/\s/g, "") ;
   datasets=datasets.split(",");
+  datasets = datasets.map(function (val) {
+    return parseInt(val);
+  })
     
     var total = 0;
-    var startAngle
     var initialAngle = 0;
     var centerX = this.canvasId.width / 2;
     var centerY = this.canvasId.height / 2;
     var radius = Math.min(centerX,centerY);
 
+    
+    total = datasets.reduce(function (total, num) {
+      return total + num;
+      
+
+    });
+    console.log("the total is",total);
+
     for (var i = 0; i < datasets.length; i++) {
       var values = datasets[i];
-   
-      total = datasets.reduce((a,b) => parseInt(a) + parseInt(b), 0);
-      var pieSlice= values/total;
-      console.log(pieSlice);
+      console.log("datasets",datasets);
 
-      var endAngle = initialAngle +  (pieSlice  * Math.PI*2);
-      console.log("this isthe total",total);
+      var pieSlice = 2 * Math.PI * values/total; 
+      
+      console.log("the angle is",pieSlice);
 
       context.beginPath();
       context.moveTo(centerX,centerY);
-
-      context.arc(centerX,centerY,radius,initialAngle,endAngle,false);
+      context.arc(centerX,centerY,radius,initialAngle,initialAngle + pieSlice,true);
       context.stroke();
       context.closePath();
       context.fill();
       context.fillStyle = makeRandomColor();
-
-    //Add labels
-    var labelX = centerX + (radius / 2) * Math.cos(initialAngle + pieSlice/2);
-    var labelY = centerY + (radius / 2) * Math.sin(initialAngle + pieSlice/2);
-
-    var labelText = Math.round(100 * values / total);
-    context.fillStyle ="white";
-    context.font = "bold 20px Arial";
-    // context.fillText(labelX,labelY);
-    initialAngle += pieSlice;
-  }
+  
+      initialAngle += pieSlice;
+      
+    }
     
 
 }
@@ -185,7 +185,7 @@ function graph(event) {
         barChart(context, canvas, dataArray, (canvas.height - 10));
       }
       if (graph === 'pie') {
-          pieChart(context,canvas,dataArray);
+          pieChart(context,canvas);
   } 
 }
 	document.getElementById("plotInputedtData").addEventListener("click", graph)
