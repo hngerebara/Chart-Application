@@ -2,28 +2,68 @@
 <html>
   <head>
     <title>Chart Plotting Application</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="style2.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"type="text/javascript"></script>
+    <script type="text/javascript" src="banner.js"></script>
   </head>
 
   <body>
-    <div>
-     <header>
-        <div class="wrapper">
-          <img class="logo"src="logo.png" alt= "Chart" >
-        <div>
-      </header>
+    <!-- start div wrapper -->
+      <div id="wrapper">
 
+        <!-- start header -->
 
-    <div>
-      <div>
-       
-              <form id='input-form'>
-                
+        <div id="banner">
+          </div>
+             <div>
+                <div class="logo">
+                  <img src="logo.png" alt= "Chart"><h2><i> Chart Application</i></h2>
                 <div>
-                  <label>Enter your data here(Please seperate with commas*)</label>
+                
+                  <ul>
+                    <li><a href="#">FaQs</a></li>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#" class="active">Home</a></li>
+                  </ul>
+              </div>
+                
+         
+      <!-- Ended header -->
+
+
+<section>
+  <div class="container">
+    <div style="display: inline-block;">
+      <img src="img/slider1.jpg"/>
+
+    </div>
+    <div>
+     <img src="img/slider2.jpg"/>
+    </div>
+    <div>
+      <img src="img/slider3.jpg"/>
+    </div>
+    <div>
+      <img src="img/slider4.jpeg"/>
+    </div>  
+    <div>
+      <img src="img/slider3.jpg"/>
+    </div>  
+</section>
+      <!-- start slider -->
+
+      <div style="width: 100%;" margin-top:"10">
+   <div style="float:left; width: 40%" align="center">
+       
+              <form class="form-style" id='input-form'>
+                <h1> Please Enter input to plot chart</h1>
+                <div>
+                  <label>Enter your Item name seperated by a comma</label>
                   <div>
                     <input type="text" id="datasets" placeholder="Enter your data">
+                    <!-- <textarea rows="4" cols="50"id="datasets" scrollbar="true"></textarea> -->
                   </div>
+                 
                 </div>
 
                 
@@ -38,8 +78,8 @@
                   </div>
                
                 
-                 <div>
-                    <button id="plotInputedtData" onclick="clearCanvas()">Plot Your Chart</button>
+                 <div><h3>please clear the canvas before plotting again</h3>
+                    <button id="plotInputedtData">Plot Your Chart</button>
                     <button id="clear">Clear Canvas</button>
                   </div>
               </form>
@@ -175,20 +215,37 @@
 //       }
 //     }</script>-->
 
-
-          
-          <div>
-              <canvas id="canvasId" height="300" width="600">
-              </canvas>
-          </div>
-        
-         
             
         </div>
-      </div>
+   <div style="float:right; width: 60%" align="center">
+              <canvas id="canvasId" height="500" width="700">
+              </canvas>
+   </div>
+</div>
+      <div>
+          
+
+          
+
+          
+
+      <!-- slider Ended -->
+
+
+      <!-- start section -->
+      
+
     </div>
-<script src="plot.js"></script>
+    <!-- Ended wrapper -->
+<script src="plot4.js"></script>
     
 
   </body>
+
+
+      <!-- Start footer -->
+      <footer>
+
+      </footer>
+      <!-- Footer ended -->
 </html>
