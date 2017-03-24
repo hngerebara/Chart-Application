@@ -1,6 +1,8 @@
+
+
 body {
 	font-size: 12px;
-	background: url("img/bakground4.jpeg");
+	background: url("/img/bakground4.jpeg");
   opacity:0.8;
 	
 }
@@ -28,11 +30,6 @@ body {
   float:right; 
   border-radius: 10px;
 } 
-.testleft{
-  float:left!important;
-  color: blue;
-
-}
 
 .container {
   max-width: 400px;
@@ -71,7 +68,7 @@ div#banner{
 	width: 1000px;
 	margin: auto;
 	height: 100px;
-	background: url("img/chart.jpg") no-repeat 0 0;
+	background: url("/img/chart.jpg") no-repeat 0 0;
 }
 
 div#banner p{
@@ -88,12 +85,17 @@ div#banner p{
 	letter-spacing: 20px;
 	opacity: 0.5;
 }
+/*Header*/
+
+
 
 h2{
  	font-size: 2.2em;
  	color: blue;
   float:left;
  }
+
+
 
 /* navigation*/
 ul{
@@ -127,6 +129,8 @@ li a:hover:not(.active){
 background-color: #4CAF50;
 
 }
+
+
 
 form-style{
 	margin-top: 20px;
